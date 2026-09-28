@@ -1,6 +1,8 @@
 export const profile = {
   name: 'Haider',
+  fullName: 'Haider Saleem',
   title: 'Software Developer & Data Analyst',
+  avatar: 'public/logos/avatar.jpg',
   tagline:
     'Computer Science student at Ontario Tech University building dashboards, data pipelines, and AI-powered apps.',
   location: 'Toronto, Ontario',
@@ -10,6 +12,30 @@ export const profile = {
   resume: 'src/assets/Haider_Saleem_Resume_2027.pdf',
   formKey: '7217601e-4bc0-438c-8513-3a4f204a180c',
 }
+
+   export const accountLinks = [
+     { label: 'LinkedIn', icon: 'linkedin', href: profile.linkedin },
+     { label: 'GitHub', icon: 'github', href: profile.github },
+     { label: 'Email', icon: 'mail', href: `mailto:${profile.email}` },
+     { label: 'Projects', icon: 'projects', href: '#projects' },
+     { label: 'Share', icon: 'share', action: 'share' },
+     { label: 'Save contact', icon: 'contact', action: 'save-contact' },
+    //  { label: 'Copy email', icon: 'copy', action: 'copy-email' }
+   ]
+
+  // Sticky notes in the About section.
+// color: yellow | pink | green | blue | orange | purple
+export const aboutNotes = [
+  { title: 'Fun fact', text: 'I speak 4 languages: English, Urdu, Hindi and Punjabi.', color: 'yellow' },
+  { title: 'Right now', text: 'Building apps and dashboards at OPG Darlington.', color: 'blue' },
+  { title: 'Minor in Astronomy', text: 'Because space is the best dataset there is.', color: 'purple' },
+  { title: 'New hobby', text: 'Just bought a tennis racket. Backhand is a work in progress.', color: 'green' },
+  { title: 'Side quest', text: 'I manage my own investment portfolio.', color: 'orange' },
+  { title: 'Next up', text: "Master's in Computer Science after I graduate in Dec 2027.", color: 'pink' },
+]
+
+// Kept for search: the text of every note is searchable too.
+export const about = aboutNotes.map((n) => `${n.title} ${n.text}`)
 
 // Phrases that type themselves in the hero search bar.
 // Pressing Enter on an empty search runs whichever phrase is showing,
@@ -36,21 +62,12 @@ export const knowledgePanel = {
   facts: [
     ['Education', 'Ontario Tech University, B.Sc. Computer Science (December 2027)'],
     ['Minors', 'Mathematics, Astronomy'],
-    ['Based in', 'Toronto, Ontario'],
-    ['Languages', 'English, Urdu, Hindi, Punjabi'],
     ['Currently', 'Co-op at Ontario Power Generation'],
+    ['Based in', 'Toronto, Ontario'],
     ['Interests', 'Tennis, investing, Astronomy'],
+    ['Languages', 'English, Urdu, Hindi, Punjabi'],
   ],
 }
-
-export const about = [
-"I'm Haider. Outside of school and work, most of my time goes to tennis, badminton, investing, and spending time with friends.",
-"I've been playing tennis for a while and recently got more into badminton too. I like both for completely different reasons, but I'm always down for a game, especially when there's a bit of competition involved.",
-"I also spend a lot of time investing and following companies. I enjoy researching businesses, learning about different industries, and seeing how things like technology and market trends affect them. It's become one of those hobbies that started casually and somehow turned into something I check way too often.",
-"I'm also a big fan of astronomy, which is probably why I ended up minoring in it. Outside of that, I'm usually watching something, playing games, hanging out with friends, or getting distracted by something completely random."
-]
-
-
 
 
 // Extra search words for the About section

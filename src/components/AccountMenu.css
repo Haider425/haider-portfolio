@@ -1,0 +1,150 @@
+.account { position: relative; }
+
+/* Header button with a four-colour ring on hover, like Google */
+.account-btn {
+  border: none;
+  background: none;
+  padding: 4px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+.account-btn:hover,
+.account-btn[aria-expanded='true'] { background: var(--surface-2); }
+
+.ring {
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.3s;
+}
+.account-btn:hover .ring,
+.ring-lg {
+  background: conic-gradient(var(--g-red) 0 25%, var(--g-yellow) 0 50%, var(--g-green) 0 75%, var(--g-blue) 0);
+}
+.ring-lg { padding: 3px; }
+
+.avatar {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #7b1fa2;
+  color: #fff;
+  font-family: var(--font);
+  font-weight: 500;
+  border: 2px solid var(--bg);
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Dropdown card */
+.account-card {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: -8px;
+  width: 360px;
+  max-width: calc(100vw - 16px);
+  padding: 12px;
+  border-radius: 28px;
+  background: #e9eef6;
+  box-shadow: 0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px rgba(60, 64, 67, 0.3);
+  transform-origin: top right;
+  animation: ac-in 0.22s cubic-bezier(0.2, 0, 0, 1);
+  z-index: 60;
+}
+.account-card[hidden] { display: none; }
+:root[data-theme='dark'] .account-card { background: #282a2c; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
+@keyframes ac-in { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
+
+.ac-top { position: relative; text-align: center; padding: 6px 40px 4px; }
+.ac-email { font-size: 14px; font-weight: 500; color: var(--text); word-break: break-all; }
+.ac-close {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: var(--text-2);
+  display: grid;
+  place-items: center;
+}
+.ac-close:hover { background: rgba(128, 128, 128, 0.15); }
+
+.ac-hero { display: flex; flex-direction: column; align-items: center; padding: 16px 12px 20px; text-align: center; }
+.ac-hero h3 { font-size: 22px; font-weight: 400; margin-top: 12px; }
+.ac-hero p { margin: 2px 0 16px; color: var(--text-2); font-size: 14px; }
+.ac-primary {
+  padding: 9px 22px;
+  border-radius: 999px;
+  border: 1px solid #747775;
+  color: var(--primary);
+  font: 500 14px var(--font);
+  transition: background 0.2s;
+}
+.ac-primary:hover { background: rgba(26, 115, 232, 0.08); }
+
+.ac-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 12px;
+  border-radius: 20px;
+  background: var(--bg);
+}
+:root[data-theme='dark'] .ac-grid { background: #1f1f1f; }
+.ac-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 4px 12px;
+  border: none;
+  background: none;
+  border-radius: 16px;
+  color: var(--text);
+  font: inherit;
+  transition: background 0.2s;
+}
+.ac-tile:hover { background: var(--surface-2); }
+.ac-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--g-blue);
+}
+.ic-linkedin { background: #0a66c2; }
+.ic-github { background: #24292f; }
+:root[data-theme='dark'] .ic-github { background: #e8eaed; color: #202124; }
+.ic-resume { background: var(--g-blue); }
+.ic-mail { background: var(--g-red); }
+.ic-message { background: var(--g-green); }
+.ic-copy { background: var(--g-yellow); color: #202124; }
+.ic-projects { background: var(--g-yellow); color: #202124; }
+.ic-share { background: var(--g-green); }
+.ic-contact { background: #7b1fa2; }
+.ac-label { font-size: 13px; }
+
+.ac-foot { margin: 12px 0 4px; text-align: center; font-size: 12px; color: var(--text-2); }
+
+@media (prefers-reduced-motion: reduce) { .account-card { animation: none; } }
+
+/* Phones: pin the card to the screen edges so it never spills off */
+@media (max-width: 480px) {
+  .account-card {
+    position: fixed;
+    top: 64px;
+    left: 8px;
+    right: 8px;
+    width: auto;
+    max-width: none;
+  }
+}

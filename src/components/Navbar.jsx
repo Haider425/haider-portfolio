@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Wordmark from './Wordmark.jsx'
 import { SunIcon, MoonIcon, MenuIcon, CloseIcon } from './Icons.jsx'
 import { profile } from '../data/content.js'
+import AccountMenu from './AccountMenu.jsx'
 import './Navbar.css'
 
 const links = [
@@ -39,7 +40,8 @@ export default function Navbar({ theme, onToggleTheme }) {
     <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
       <div className="container nav-inner">
         <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
-          <Wordmark size="sm" text={profile.name} />
+          {/* <Wordmark size="sm" text={profile.name} /> */}
+          <img src="./logos/logo.svg" alt={profile.name} className="nav-logo-img" />
         </a>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>
@@ -64,9 +66,7 @@ export default function Navbar({ theme, onToggleTheme }) {
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
-          <a className="btn btn-filled nav-cta" href={profile.resume} target="_blank" rel="noreferrer">
-            Résumé
-          </a>
+             <AccountMenu />
           <button className="icon-btn nav-menu" onClick={() => setOpen((o) => !o)} aria-label="Menu">
             {open ? <CloseIcon /> : <MenuIcon />}
           </button>

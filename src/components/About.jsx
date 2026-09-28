@@ -1,6 +1,6 @@
 import SectionHead from './SectionHead.jsx'
 import Wordmark from './Wordmark.jsx'
-import { about, aboutKeywords, knowledgePanel, profile } from '../data/content.js'
+import { about, aboutNotes, aboutKeywords, knowledgePanel, profile } from '../data/content.js'
 import './About.css'
 
 export default function About() {
@@ -10,12 +10,20 @@ export default function About() {
         <SectionHead eyebrow="About" title="A bit about me" />
         <div className="about-grid">
           <div
-            className="about-body reveal"
+            className="notes reveal"
             data-search-title="About"
             data-search={[...about, ...aboutKeywords, ...knowledgePanel.facts.flat()].join(' ')}
           >
-            {about.map((p, i) => (
-              <p key={i}>{p}</p>
+            {aboutNotes.map((n, i) => (
+              <div
+                key={n.title}
+                className={`sticky sticky-${n.color}`}
+                style={{ '--tilt': `${[-2.5, 1.8, -1.2, 2.4, -1.8, 1.2][i % 6]}deg` }}
+              >
+                <span className="tape" aria-hidden="true" />
+                <h4>{n.title}</h4>
+                <p>{n.text}</p>
+              </div>
             ))}
           </div>
 

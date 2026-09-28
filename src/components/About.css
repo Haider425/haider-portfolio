@@ -52,3 +52,70 @@
 @media (max-width: 860px) {
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* Sticky notes */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 24px;
+  padding: 12px 8px 0;
+}
+.sticky {
+  --paper: #fff59d;
+  --paper-dark: #fbe96f;
+  position: relative;
+  min-height: 150px;
+  padding: 22px 16px 16px;
+  color: #3a3a3a;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper) 70%, var(--paper-dark) 100%);
+  border-radius: 2px 2px 18px 2px; /* curled bottom-right corner */
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 18px -8px rgba(0, 0, 0, 0.45), inset -10px -10px 14px -12px rgba(0, 0, 0, 0.35);
+  transform: rotate(var(--tilt));
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.35s;
+}
+.sticky:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15), 0 18px 28px -10px rgba(0, 0, 0, 0.5), inset -10px -10px 14px -12px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+/* Strip of tape at the top */
+.tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 64px;
+  height: 20px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(235, 230, 215, 0.7);
+  border-left: 1px dashed rgba(0, 0, 0, 0.12);
+  border-right: 1px dashed rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.sticky h4 {
+  font: 700 22px/1.1 'Caveat', 'Segoe Print', cursive;
+  margin: 0 0 8px;
+  color: #2b2b2b;
+}
+.sticky p {
+  margin: 0;
+  font: 500 19px/1.25 'Caveat', 'Segoe Print', cursive;
+  color: #3a3a3a;
+}
+
+.sticky-yellow { --paper: #fff59d; --paper-dark: #fbe96f; }
+.sticky-pink   { --paper: #f8bbd0; --paper-dark: #f48fb1; }
+.sticky-green  { --paper: #c5e1a5; --paper-dark: #aed581; }
+.sticky-blue   { --paper: #b3e5fc; --paper-dark: #81d4fa; }
+.sticky-orange { --paper: #ffcc80; --paper-dark: #ffb74d; }
+.sticky-purple { --paper: #d1c4e9; --paper-dark: #b39ddb; }
+
+@media (max-width: 480px) {
+  .notes { gap: 22px 14px; padding: 12px 4px 0; }
+  .sticky { min-height: 150px; padding: 24px 14px 16px; }
+  .sticky h4 { font-size: 22px; }
+  .sticky p { font-size: 19px; }
+  .tape { width: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky { transition: none; }
+}
