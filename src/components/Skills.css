@@ -1,0 +1,24 @@
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  --solid: var(--g-blue);
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, box-shadow 0.3s, opacity 0.7s, transform 0.7s;
+}
+.skill-card:hover { border-color: var(--solid); box-shadow: var(--shadow); }
+.skill-red { --solid: var(--g-red); }
+.skill-yellow { --solid: var(--g-yellow); }
+.skill-green { --solid: var(--g-green); }
+
+.skill-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.skill-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--solid); }
+.skill-head h3 { font-size: 18px; flex: 1; }
+.skill-count { font: 12px var(--font-mono); color: var(--text-2); }
+.skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-items .chip { font-size: 13px; }

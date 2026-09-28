@@ -1,0 +1,54 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.about-body p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+.about-body p:first-child {
+  font-family: var(--font);
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.45;
+}
+
+/* Knowledge panel card */
+.kp {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg);
+}
+.kp-banner {
+  height: 120px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 15% 30%, var(--tint-blue) 0 60px, transparent 61px),
+    radial-gradient(circle at 85% 70%, var(--tint-green) 0 70px, transparent 71px),
+    radial-gradient(circle at 60% 10%, var(--tint-yellow) 0 40px, transparent 41px),
+    var(--surface);
+}
+.kp-banner .wordmark { font-size: 44px; }
+.kp-body { padding: 20px 24px 24px; }
+.kp-name { font-size: 28px; }
+.kp-sub { margin: 2px 0 14px; color: var(--text-2); font-size: 14px; }
+.kp-summary {
+  margin: 0 0 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text);
+  white-space: pre-line;
+}
+.kp-facts { margin: 0; display: grid; gap: 8px; font-size: 14px; }
+.kp-facts div { display: flex; gap: 6px; }
+.kp-facts dt { font-weight: 700; white-space: nowrap; }
+.kp-facts dd { margin: 0; color: var(--text-2); }
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+}
