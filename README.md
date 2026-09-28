@@ -17,4 +17,4 @@ All content is in `src/data/content.js`.
 
 ## Contact
 
-REPLACE_EMAIL · [LinkedIn](https://linkedin.com/in/haider42)
+[LinkedIn](https://linkedin.com/in/haider42)
