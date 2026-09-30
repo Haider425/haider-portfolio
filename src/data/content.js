@@ -2,14 +2,14 @@ export const profile = {
   name: 'Haider',
   fullName: 'Haider Saleem',
   title: 'Software Developer & Data Analyst',
-  avatar: 'public/logos/avatar.jpg',
+  avatar: './logos/avatar.jpg',
   tagline:
     'Computer Science student at Ontario Tech University building dashboards, data pipelines, and AI-powered apps.',
   location: 'Toronto, Ontario',
   email: 'haider.saleem@Ontariotechu.net',
   linkedin: 'https://linkedin.com/in/haider42',
   github: 'https://github.com/Haider425',
-  resume: 'src/assets/Haider_Saleem_Resume_2027.pdf',
+  resume: './assets/Haider_Saleem_Resume_2027.pdf',
   formKey: '7217601e-4bc0-438c-8513-3a4f204a180c',
 }
 
