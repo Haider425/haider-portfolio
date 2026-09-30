@@ -304,92 +304,174 @@ export const experience = [
   },
 ]
 
-export const projectFilters = ['All', 'Data', 'AI', 'Software', 'Research']
+export const projectFilters = ['All', 'Software', 'Data', 'AI']
 
 // color: one of blue | red | yellow | green
+// Replace your `projects` array in content.js with this one,
+// and set: export const projectFilters = ['All', 'Software', 'Data', 'AI']
+
+// Replace your whole `projects` array in content.js with this one.
+// New: each project has a `details` block for the side panel,
+// and The Big Three Era now links to its live report and repo.
+
 export const projects = [
   {
-    name: 'AI Product Pipeline',
-    category: ['AI', 'Software'],
-    color: 'red',
-    description:
-      'Node.js and Express API that parses .eml files and pulls structured product data from email text and images with Gemini vision, then regenerates product photos as studio shots.',
-    stack: ['Node.js', 'Express', 'Gemini 2.5', 'mailparser', 'Multer', 'Pino'],
-    link: 'REPLACE_LINK',
-    keywords: [
-      'ai', 'llm', 'gemini', 'vision', 'computer vision', 'image generation', 'generative ai',
-      'genai', 'email', 'eml', 'parsing', 'json', 'schema', 'api', 'rest api', 'backend',
-      'full stack', 'javascript', 'ecommerce', 'product data', 'apparel',
-    ],
-  },
-  {
     name: 'CampusConnect AI',
+    thumb: './thumbs/campusconnect-ai.svg',
     category: ['AI', 'Software'],
     color: 'blue',
     description:
-      'Hybrid AI chatbot for the University Test Centre that combines semantic search with an LLM fallback, using vector-based intent routing for better answers than keyword matching.',
+      "AI chatbot for Ontario Tech's Test Centre that answers questions about bookings, accommodations and locations. It matches questions to FAQs with semantic search and falls back to a local LLM when there's no good match.",
     stack: ['React', 'Flask', 'Python', 'SentenceTransformers', 'Ollama'],
-    link: 'REPLACE_LINK',
+    link: 'https://github.com/Haider425/CampusConnect-AI',
+    details: {
+      overview:
+        "Students kept asking the Test Centre the same questions about bookings, accommodations and locations. CampusConnect answers them instantly: it first detects what kind of question it is, looks for the closest match in the FAQ using semantic search, and only falls back to a local LLM when no FAQ answer is close enough.",
+      features: [
+        'Detects the question type (location, booking, contact or accommodations) before answering',
+        'Semantic FAQ matching with SentenceTransformers (MiniLM) and cosine similarity',
+        'Falls back to a local Qwen model through Ollama when there is no good FAQ match',
+        'React chat interface with typing indicators and session-based chat history',
+        'Flask REST API that handles requests in parallel with ThreadPoolExecutor',
+      ],
+      facts: [['Type', 'AI chatbot'], ['Frontend', 'React'], ['Backend', 'Flask (Python)'], ['License', 'MIT']],
+    },
     keywords: [
-      'chatbot', 'chat bot', 'ai', 'llm', 'nlp', 'semantic search', 'embeddings', 'vector',
-      'vector search', 'intent', 'rag', 'machine learning', 'ml', 'full stack', 'frontend',
-      'backend', 'rest api', 'javascript', 'university', 'test centre',
+      'chatbot', 'chat bot', 'ai', 'llm', 'nlp', 'semantic search', 'embeddings', 'vector', 'minilm',
+      'qwen', 'intent', 'machine learning', 'ml', 'full stack', 'frontend', 'backend', 'rest api',
+      'javascript', 'university', 'test centre',
     ],
   },
   {
-    name: 'OPS BI Dashboards',
-    category: ['Data'],
-    color: 'yellow',
-    description:
-      "Power BI dashboards tracking 10+ KPIs for the CIO's Office, with SQL and Excel analysis behind them.",
-    stack: ['Power BI', 'SQL', 'Excel', 'Power Automate'],
-    link: 'REPLACE_LINK',
-    keywords: [
-      'dashboard', 'dashboards', 'kpi', 'bi', 'business intelligence', 'reporting', 'analytics',
-      'data visualization', 'visualisation', 'government', 'dax',
-    ],
-  },
-  {
-    name: 'QA Automation Framework',
+    name: 'ChessHub',
+    thumb: './thumbs/chesshub.svg',
     category: ['Software'],
     color: 'green',
     description:
-      'Automated QA framework in Python and Azure DevOps that cut validation time by 30% for tax remittance workflows.',
-    stack: ['Python', 'Azure DevOps'],
-    link: 'REPLACE_LINK',
+      'Full-stack chess web app with online multiplayer over WebSockets, a computer opponent, and daily puzzles. Team of four; I built the board, pieces, themes, move highlighting, rules, popups and sidebar.',
+    stack: ['JavaScript', 'HTML/CSS', 'Java', 'Jakarta EE', 'WebSockets'],
+    link: 'https://chess-hub.netlify.app/title',
+    code: 'https://github.com/Haider425/chess-hub',
+    details: {
+      overview:
+        'A full-stack chess web app built as the final project for CSCI 2020U. Players can play each other online in real time, take on a computer opponent, or solve a daily puzzle.',
+      features: [
+        'Real-time online multiplayer over WebSockets on a Java (Jakarta EE) server',
+        'Computer opponent powered by WukongJS',
+        'Daily chess puzzle mode',
+        'ELO leaderboard',
+        'Board themes, legal move highlighting, popups and a game sidebar',
+      ],
+      role: 'I built the chess board, pieces, themes, rules, highlighted moves, popups and sidebar.',
+      facts: [['Type', 'Web app'], ['Team', '4 people'], ['Course', 'CSCI 2020U'], ['Hosted on', 'Netlify']],
+    },
     keywords: [
-      'qa', 'quality assurance', 'testing', 'test automation', 'automation', 'devops', 'azure',
-      'ci/cd', 'pipelines', 'data integrity', 'government',
+      'chess', 'game', 'multiplayer', 'websocket', 'real time', 'realtime', 'puzzles', 'cpu',
+      'frontend', 'full stack', 'web app', 'team', 'netlify',
     ],
   },
   {
-    name: 'Autonomous Navigation',
-    category: ['Research', 'AI'],
+    name: 'ChatterBox',
+    thumb: './thumbs/chatterbox.svg',
+    category: ['Software'],
     color: 'green',
-    description: 'TurtleBot 4 that maps its surroundings and plans routes on its own using SLAM in ROS2.',
-    stack: ['ROS2', 'SLAM', 'TurtleBot 4', 'Python'],
-    link: 'REPLACE_LINK',
-    keywords: ['robotics', 'robot', 'autonomous', 'navigation', 'mapping', 'path planning', 'research', 'lab'],
+    description:
+      'Cross-platform messaging app with real-time chat, file and photo sharing, live location sharing, and push notifications.',
+    stack: ['Flutter', 'Dart', 'Firebase', 'Firestore', 'Google Maps API'],
+    link: 'https://github.com/Haider425/ChatterBox',
+    details: {
+      overview:
+        'A cross-platform messaging app built with Flutter and Firebase, covering the core features people expect from a modern chat app.',
+      features: [
+        'Email and password sign-in with Firebase Auth, including password reset',
+        'Real-time messaging with Cloud Firestore',
+        'Share files, photos from the in-app camera, and live location through Google Maps',
+        'Push notifications with Firebase Cloud Messaging',
+        'Friend search, draft auto-save, and chat archiving',
+      ],
+      facts: [['Type', 'Mobile app'], ['Platforms', 'Android and iOS'], ['Backend', 'Firebase'], ['License', 'MIT']],
+    },
+    keywords: [
+      'mobile', 'app', 'android', 'ios', 'messaging', 'chat', 'realtime', 'real time',
+      'notifications', 'fcm', 'authentication', 'cloud',
+    ],
+  },
+  {
+    name: 'CineSeek',
+    thumb: './thumbs/cineseek.svg',
+    category: ['Software'],
+    color: 'yellow',
+    description:
+      'Movie search website that shows posters, IMDb ratings, plot, cast, awards and genres for any film.',
+    stack: ['JavaScript', 'HTML', 'CSS', 'REST API'],
+    link: 'https://cineseek.netlify.app/',
+    code: 'https://github.com/Haider425/CineSeek',
+    details: {
+      overview:
+        'A movie search website. Type a title and get everything you need to decide what to watch in one place.',
+      features: [
+        'Search any movie by title',
+        'Poster, release date, IMDb rating and plot description',
+        'Cast and crew, awards, genres and languages',
+        'Deployed live on Netlify',
+      ],
+      facts: [['Type', 'Website'], ['Built with', 'HTML, CSS, JavaScript'], ['Hosted on', 'Netlify']],
+    },
+    keywords: ['movies', 'films', 'search', 'web', 'website', 'frontend', 'api', 'netlify'],
+  },
+  {
+    name: 'World Happiness Analysis',
+    thumb: './thumbs/world-happiness.svg',
+    category: ['Data'],
+    color: 'yellow',
+    description:
+      'Exploratory analysis of the 2019 World Happiness Report across 156 countries, comparing happiness scores with GDP per capita and other indicators.',
+    stack: ['Python', 'pandas', 'seaborn', 'Matplotlib', 'NumPy', 'Jupyter'],
+    link: 'https://github.com/Haider425/HappinessEDA',
+    details: {
+      overview:
+        'An exploratory analysis of the 2019 World Happiness Report, which scores 156 countries on happiness alongside economic and social indicators. The goal was to find where people are happiest and whether money is linked to happiness.',
+      features: [
+        'Cleaned the Kaggle dataset: dropped unused columns and duplicates, renamed fields',
+        'Summary statistics to understand how scores are spread',
+        'Compared the top 10 and bottom 10 countries on happiness and GDP per capita',
+        'Combined bar and line charts of happiness against GDP for the top 25 countries',
+        'Found a clear positive link between GDP per capita and happiness',
+      ],
+      facts: [['Type', 'Data analysis'], ['Countries', '156'], ['Data', 'Kaggle, 2019'], ['Tools', 'pandas, seaborn']],
+    },
+    keywords: [
+      'eda', 'exploratory data analysis', 'data analysis', 'analytics', 'data visualization',
+      'visualisation', 'charts', 'statistics', 'kaggle', 'gdp', 'happiness', 'notebook',
+    ],
   },
   {
     name: 'The Big Three Era',
+    thumb: './thumbs/big-three-era.svg',
     category: ['Data'],
     color: 'blue',
     description: 'Data visualization report on Federer, Nadal, and Djokovic built in R.',
     stack: ['R', 'ggplot2', 'dplyr'],
-    link: 'REPLACE_LINK',
+    link: 'https://haider425.github.io/Big-3/',
+    code: 'https://github.com/Haider425/Big-3',
+    details: {
+      overview:
+        'A data visualization report on how Federer, Nadal and Djokovic dominated men\'s tennis from 2004 to 2023, built from over 39,000 ATP match records. It looks at how dominant they were, how court surface shaped results, and how their Grand Slam runs unfolded.',
+      features: [
+        'Choropleth map of ATP wins by player nationality',
+        'Lollipop chart of the top 20 players by total wins',
+        'Season win totals over time, and a heatmap of win share by surface',
+        'Scatter plot of season wins against average opponent ranking',
+        'Ridgeline plot of wins across years, and Grand Slam wins by round',
+      ],
+      facts: [['Type', 'Data visualization'], ['Matches', '39,000+'], ['Years', '2004 to 2023'], ['Tools', 'R, ggplot2, sf']],
+    },
     keywords: ['tennis', 'sports', 'data visualization', 'visualisation', 'charts', 'statistics', 'stats', 'report'],
   },
-  {
-    name: 'Compiler Front End',
-    category: ['Software'],
-    color: 'yellow',
-    description: 'Language parser and interpreter built with ANTLR4 grammars and Kotlin.',
-    stack: ['Kotlin', 'ANTLR4'],
-    link: 'REPLACE_LINK',
-    keywords: ['compiler', 'compilers', 'parser', 'parsing', 'interpreter', 'grammar', 'programming languages', 'course'],
-  },
 ]
+
+export const coreSkills = ['Python', 'SQL', 'Power BI', 'Angular', 'ASP.NET', 'React', 'Node.js', 'Azure DevOps']
+
 
 export const skills = [
   {
