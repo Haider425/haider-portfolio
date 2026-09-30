@@ -211,3 +211,18 @@
   .sheet, .sheet-scrim { transition: none; }
   .sheet-hero, .sheet-body { animation: none; }
 }
+
+/* Fully hide the panel once it has closed.
+   Without this, the closed panel sits just below the screen and can peek in on phones
+   when the browser's address bar shrinks or grows while scrolling. */
+.sheet-root {
+  visibility: hidden;
+  transition: visibility 0s linear 0.45s; /* wait for the slide-out to finish */
+}
+.sheet-root.open {
+  visibility: visible;
+  transition-delay: 0s;
+}
+@media (max-width: 640px) {
+  .sheet { transform: translateY(calc(100% + 64px)); }
+}
