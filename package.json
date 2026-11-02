@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@huggingface/transformers": "^3.0.2",
+    "astronomy-engine": "^2.1.19",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "satellite.js": "^5.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",

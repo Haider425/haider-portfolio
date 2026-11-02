@@ -1,0 +1,94 @@
+/* CampusConnect chat, running inside the project window */
+.cc {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  background: #f4f6fb;
+  color: #1a2233;
+  font: 15px/1.5 var(--font-body);
+}
+.cc-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #003c71;
+  color: #fff;
+}
+.cc-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e2a13a;
+  color: #003c71;
+  font: 700 14px var(--font-body);
+}
+.cc-name { margin: 0; font-weight: 700; }
+.cc-status { margin: 0; display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: #c7d6ea; }
+.cc-status i { width: 7px; height: 7px; border-radius: 50%; background: #f5c063; }
+.cc-ready i { background: #4cc98f; }
+.cc-failed i { background: #c7d6ea; }
+.cc-loading i { animation: cc-blink 1s ease-in-out infinite; }
+@keyframes cc-blink { 50% { opacity: 0.3; } }
+
+.cc-list { overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.cc-empty { margin: auto 0; text-align: center; color: #4b5872; }
+.cc-empty p { max-width: 34em; margin: 0 auto 14px; }
+.cc-suggest { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.cc-suggest button {
+  border: 1px solid #c9d3e6;
+  background: #fff;
+  color: #003c71;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font: 600 13.5px var(--font-body);
+}
+.cc-suggest button:hover { border-color: #003c71; }
+
+.cc-msg { max-width: min(560px, 85%); display: flex; flex-direction: column; gap: 4px; }
+.cc-msg p {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 16px;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.cc-user { align-self: flex-end; }
+.cc-user p { background: #003c71; color: #fff; border-bottom-right-radius: 4px; }
+.cc-bot { align-self: flex-start; }
+.cc-bot p { background: #fff; border: 1px solid #dfe5f1; border-bottom-left-radius: 4px; }
+.cc-meta { font-size: 11.5px; color: #6b7894; padding-left: 4px; font-variant-numeric: tabular-nums; }
+.cc-typing { flex-direction: row; gap: 4px; padding: 14px 16px; background: #fff; border: 1px solid #dfe5f1; border-radius: 16px; border-bottom-left-radius: 4px; }
+.cc-typing span { width: 7px; height: 7px; border-radius: 50%; background: #9aa6bf; animation: cc-dot 1.2s infinite; }
+.cc-typing span:nth-child(2) { animation-delay: 0.15s; }
+.cc-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes cc-dot { 30% { transform: translateY(-4px); opacity: 1; } 0%, 60%, 100% { opacity: 0.5; } }
+
+.cc-input { display: flex; gap: 8px; padding: 12px 14px; background: #fff; border-top: 1px solid #dfe5f1; }
+.cc-input input {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  border: 1px solid #c9d3e6;
+  border-radius: 12px;
+  padding: 0 14px;
+  font: 15px var(--font-body);
+  color: #1a2233;
+  background: #fff;
+}
+.cc-input input:focus { outline: 2px solid #003c71; outline-offset: 1px; }
+.cc-input button {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  background: #003c71;
+  color: #fff;
+  font: 600 14px var(--font-body);
+}
+.cc-input button:disabled { opacity: 0.5; }
+.cc-note { margin: 0; padding: 6px 14px 10px; background: #fff; font-size: 11.5px; color: #6b7894; }
+@media (prefers-reduced-motion: reduce) { .cc-typing span, .cc-loading i { animation: none; } }

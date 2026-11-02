@@ -2,7 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: box-shadow 0.25s, background 0.3s;
 }
 .nav-scrolled { box-shadow: 0 1px 0 var(--border), 0 2px 12px rgba(0, 0, 0, 0.04); }
@@ -22,8 +24,9 @@
 .nav-links a {
   position: relative;
   padding: 8px 16px;
-  border-radius: 999px;
-  font-family: var(--font);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 15px;
   color: var(--text-2);
   transition: background 0.2s, color 0.2s;
@@ -48,27 +51,20 @@
 .icon-btn:hover { background: var(--surface-2); color: var(--text); }
 .nav-menu { display: none; }
 
-   .nav-logo { display: inline-flex; align-items: center; }
-   .nav-logo-img {
-     width: 36px;
-     height: 36px;
-     display: block;
-     transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1);
-   }
-   .nav-logo:hover .nav-logo-img { transform: translateY(-2px); }
-
-.nav-logo {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-.nav-scrolled .nav-logo {
-  opacity: 1;
-  pointer-events: auto;
+.nav-logo { display: inline-flex; align-items: center; gap: 10px; }
+.nav-logo .mark { transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1); }
+.nav-logo:hover .mark { transform: rotate(-20deg); }
+.nav-name {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'wdth' 88;
 }
 
 @media (max-width: 860px) {
   .nav-menu { display: grid; }
+  .nav-name { display: none; }
   .nav-cta { display: none; }
   .nav-links {
     position: absolute;

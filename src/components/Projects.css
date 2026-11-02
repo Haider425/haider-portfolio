@@ -5,19 +5,20 @@
 .filter.selected { background: var(--primary-soft); border-color: var(--primary-soft); color: var(--ink-blue); }
 .check { font-size: 13px; }
 
-/* ============ App icon (rounded square in a Google colour) ============ */
+/* ============ App icon ============ */
 .app-icon {
   flex-shrink: 0;
   display: grid;
   place-items: center;
   border-radius: 28%;
-  background: var(--g-blue);
+  background: var(--hue-cobalt);
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-.app-red { background: var(--g-red); }
-.app-yellow { background: #f29900; }
-.app-green { background: var(--g-green); }
-.app-blue { background: var(--g-blue); }
+.app-red { background: var(--hue-ember); }
+.app-yellow { background: var(--hue-amber); }
+.app-violet { background: var(--hue-violet); }
+.app-green { background: var(--hue-violet); }
+.app-blue { background: var(--hue-cobalt); }
 
 .app-meta { margin: 2px 0 0; font-size: 12px; color: var(--text-2); }
 

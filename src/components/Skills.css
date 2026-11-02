@@ -41,10 +41,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
-.more-col { --solid: var(--g-blue); }
-.skill-red { --solid: var(--g-red); }
-.skill-yellow { --solid: var(--g-yellow); }
-.skill-green { --solid: var(--g-green); }
+.more-col { --solid: var(--hue-cobalt); }
+.skill-red { --solid: var(--hue-ember); }
+.skill-yellow { --solid: var(--hue-amber); }
+.skill-green { --solid: var(--hue-violet); }
 .more-col h3 {
   display: flex;
   align-items: center;

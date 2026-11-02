@@ -5,7 +5,7 @@
 
 <g filter="url(#sh)">
  <rect x="60" y="80" width="200" height="200" rx="18" fill="#fff"/>
- <rect x="60" y="80" width="200" height="44" rx="18" fill="#fce8e6"/><rect x="60" y="106" width="200" height="18" fill="#fce8e6"/>
+ <rect x="60" y="80" width="200" height="44" rx="18" fill="#fdeae4"/><rect x="60" y="106" width="200" height="18" fill="#fdeae4"/>
  <rect x="84" y="94" width="28" height="18" rx="3" fill="none" stroke="#c5221f" stroke-width="2"/><path d="M85 96l13 9 13-9" fill="none" stroke="#c5221f" stroke-width="2"/>
  <rect x="122" y="96" width="90" height="8" rx="4" fill="#f4b4ae"/>
  <rect x="80" y="140" width="160" height="7" rx="3.5" fill="#e0e0e0"/><rect x="80" y="155" width="130" height="7" rx="3.5" fill="#e0e0e0"/>
@@ -15,15 +15,15 @@
 </g>
 <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12" opacity=".9"><path d="M276 180h84"/></g>
 <g filter="url(#sh)"><circle cx="320" cy="180" r="30" fill="#fff"/>
-<path d="M320 162l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#ea4335"/><path d="M333 186l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fbbc05"/></g>
+<path d="M320 162l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#e2603d"/><path d="M333 186l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#e39b2d"/></g>
 <g filter="url(#sh)">
  <rect x="380" y="60" width="200" height="240" rx="18" fill="#fff"/>
- <rect x="396" y="76" width="168" height="130" rx="12" fill="#f1f3f4"/>
- <path d="M452 104l14-10h28l14 10 12 18-14 8-6-6v52h-60v-52l-6 6-14-8z" fill="#ea4335"/>
- <ellipse cx="480" cy="196" rx="44" ry="5" fill="#dadce0"/>
- <rect x="396" y="220" width="120" height="10" rx="5" fill="#3c4043"/>
+ <rect x="396" y="76" width="168" height="130" rx="12" fill="#eeeff5"/>
+ <path d="M452 104l14-10h28l14 10 12 18-14 8-6-6v52h-60v-52l-6 6-14-8z" fill="#e2603d"/>
+ <ellipse cx="480" cy="196" rx="44" ry="5" fill="#dfe1ea"/>
+ <rect x="396" y="220" width="120" height="10" rx="5" fill="#2a3049"/>
  <rect x="396" y="238" width="80" height="8" rx="4" fill="#bdc1c6"/>
- <rect x="396" y="262" width="60" height="22" rx="11" fill="#fce8e6"/><rect x="408" y="270" width="36" height="6" rx="3" fill="#ea4335"/>
- <rect x="530" y="262" width="34" height="22" rx="11" fill="#ea4335"/>
+ <rect x="396" y="262" width="60" height="22" rx="11" fill="#fdeae4"/><rect x="408" y="270" width="36" height="6" rx="3" fill="#e2603d"/>
+ <rect x="530" y="262" width="34" height="22" rx="11" fill="#e2603d"/>
 </g>
 </svg>

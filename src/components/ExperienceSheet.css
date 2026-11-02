@@ -16,7 +16,7 @@
 .sheet-root.open .sheet-scrim { opacity: 1; }
 
 .sheet {
-  --accent: var(--g-blue);
+  --accent: var(--hue-cobalt);
   position: absolute;
   top: 12px;
   right: 12px;

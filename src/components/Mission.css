@@ -1,0 +1,235 @@
+/* Mission view: a role, told as a space mission. Always night colours.
+   A fixed frame (track, body, nav) so it always fits the screen. */
+.mission {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background:
+    radial-gradient(60% 50% at 20% 25%, color-mix(in srgb, var(--hue) 18%, transparent), transparent 70%),
+    radial-gradient(100% 80% at 50% 0%, #0d1233, #04060f 70%);
+  color: #dfe3ff;
+  transition: background 0.5s;
+}
+
+/* Track of missions along the top */
+.m-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: max(16px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 8px max(20px, env(safe-area-inset-left));
+}
+.m-track {
+  position: relative;
+  flex: 1;
+  max-width: 560px;
+  margin: 0 auto;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.m-track-line {
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22) 8%, rgba(255, 255, 255, 0.22) 92%, transparent);
+}
+.m-stop {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #1a1f3a;
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--c) 70%, transparent);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.2s, box-shadow 0.2s;
+}
+.m-stop:hover { transform: scale(1.25); }
+.m-stop.on { background: var(--c); transform: scale(1.35); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 25%, transparent), 0 0 18px var(--c); }
+.m-stop.now::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4cc98f;
+}
+.m-stop-label {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  translate: -50% 0;
+  white-space: nowrap;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(16, 20, 46, 0.95);
+  color: #dfe3ff;
+  font: 600 11.5px var(--font-body);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  z-index: 3;
+}
+.m-stop:hover .m-stop-label, .m-stop:focus-visible .m-stop-label { opacity: 1; }
+.m-close {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transition: background 0.15s;
+}
+.m-close:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* Body scrolls on its own when a role has a lot to say, without a visible bar */
+.m-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+  mask-image: linear-gradient(to bottom, transparent, #000 16px, #000 calc(100% - 24px), transparent);
+}
+.m-grid {
+  max-width: 1080px;
+  min-height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+  padding-block: 24px;
+}
+.m-grid > * { min-width: 0; }
+.m-grid.from-right { animation: m-slide-r 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.m-grid.from-left { animation: m-slide-l 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes m-slide-r { from { opacity: 0; transform: translateX(28px); } }
+@keyframes m-slide-l { from { opacity: 0; transform: translateX(-28px); } }
+
+.m-left { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.m-patch { width: min(280px, 70vw); aspect-ratio: 1; }
+.patch { width: 100%; height: 100%; display: block; filter: drop-shadow(0 20px 50px color-mix(in srgb, var(--hue) 35%, transparent)); }
+.patch-text { font: 700 15px var(--font-body); letter-spacing: 0.18em; }
+.patch-text.small { font-size: 13px; letter-spacing: 0.24em; }
+
+.m-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font: 600 14px var(--font-body);
+  font-variant-numeric: tabular-nums;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.m-live { background: rgba(76, 201, 143, 0.14); border-color: rgba(76, 201, 143, 0.4); color: #9be8c4; }
+.m-live .live-dot { width: 8px; height: 8px; background: #4cc98f; }
+.m-progress { width: min(260px, 70vw); height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+.m-progress span { display: block; height: 100%; border-radius: 3px; background: var(--hue); animation: m-grow 1.2s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; transform-origin: left; }
+@keyframes m-grow { from { transform: scaleX(0); } }
+.m-where { margin: 0; font-size: 13.5px; color: #9097c0; }
+
+
+@keyframes m-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.m-kicker { margin: 0 0 6px; color: var(--hue); font: 600 13px var(--font-body); }
+.m-title {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 85;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.m-org { margin: 6px 0 26px; font-size: 17px; color: #aab0d6; }
+.m-right section { margin-bottom: 22px; }
+.m-right h3 { margin: 0 0 8px; font: 600 12.5px var(--font-body); color: #f5c063; letter-spacing: 0.02em; }
+.m-right section p { margin: 0; line-height: 1.65; color: #d4d8f5; }
+.m-objectives { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.m-objectives li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  line-height: 1.5;
+  color: #e4e7ff;
+  animation: m-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.m-objectives svg { width: 18px; height: 18px; margin-top: 2px; color: var(--hue); }
+.m-payload { display: flex; flex-wrap: wrap; gap: 6px; }
+.m-payload span {
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--hue) 45%, transparent);
+  background: color-mix(in srgb, var(--hue) 12%, transparent);
+  color: #fff;
+  font-size: 13px;
+}
+.m-debrief { padding-left: 14px; border-left: 3px solid var(--hue); font-style: italic; }
+
+.m-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px max(20px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.m-nav button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 48%;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  border-radius: 14px;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+}
+.m-nav button:hover { background: rgba(255, 255, 255, 0.09); border-color: rgba(255, 255, 255, 0.22); }
+.m-next { text-align: right; }
+.m-nav-text { display: flex; flex-direction: column; min-width: 0; font: 600 14px var(--font-body); }
+.m-nav-text, .m-nav-text small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.m-nav-text small { font-size: 11.5px; font-weight: 500; color: #8a90b8; }
+.m-arrow { font-size: 18px; color: var(--hue); transition: transform 0.2s; }
+.m-nav button:hover .m-arrow { transform: translateX(-3px); }
+.m-next:hover .m-arrow { transform: translateX(3px); }
+
+@media (max-width: 760px) {
+  .m-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; min-height: 0; padding-top: 8px; }
+  .m-patch { width: min(200px, 52vw); }
+  .m-left { gap: 10px; }
+  .m-track { height: 36px; }
+  .m-stop-label { display: none; }
+}
+@media (max-height: 760px) and (min-width: 761px) {
+  .m-patch { width: 220px; }
+  .m-grid { gap: 48px; }
+}
+
+::view-transition-group(vt-hero) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.35s; }
+@media (prefers-reduced-motion: reduce) {
+  .m-grid, .m-objectives li, .m-progress span { animation: none !important; }
+}
+
+@media (max-width: 480px) {
+  .m-nav button { padding: 8px 12px; gap: 8px; }
+  .m-nav-text { font-size: 13px; }
+}

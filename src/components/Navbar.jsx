@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Wordmark from './Wordmark.jsx'
+import Mark from './Mark.jsx'
 import { SunIcon, MoonIcon, MenuIcon, CloseIcon } from './Icons.jsx'
 import { profile } from '../data/content.js'
 import AccountMenu from './AccountMenu.jsx'
@@ -40,8 +40,8 @@ export default function Navbar({ theme, onToggleTheme }) {
     <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
       <div className="container nav-inner">
         <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
-          {/* <Wordmark size="sm" text={profile.name} /> */}
-          <img src="./logos/logo.svg" alt={profile.name} className="nav-logo-img" />
+          <Mark size={34} />
+          <span className="nav-name">{profile.fullName}</span>
         </a>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>

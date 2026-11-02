@@ -1,5 +1,4 @@
 import SectionHead from './SectionHead.jsx'
-import Wordmark from './Wordmark.jsx'
 import { about, aboutNotes, aboutKeywords, knowledgePanel, profile } from '../data/content.js'
 import './About.css'
 
@@ -28,11 +27,10 @@ export default function About() {
           </div>
 
           <aside className="kp reveal" aria-label="Quick profile">
-            <div className="kp-banner">
-              <Wordmark size="sm" text={profile.name} />
-            </div>
+            <div className="kp-banner" aria-hidden="true" />
+            <img className="kp-avatar" src={profile.avatar} alt="" />
             <div className="kp-body">
-              <h3 className="kp-name">{profile.name} Saleem</h3>
+              <h3 className="kp-name">{profile.fullName}</h3>
               <p className="kp-sub">{knowledgePanel.subtitle}</p>
               <p className="kp-summary">{knowledgePanel.summary}</p>
               <dl className="kp-facts">

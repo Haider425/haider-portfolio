@@ -6,7 +6,7 @@ import Logo from './Logo.jsx'
 import { experience } from '../data/content.js'
 import './Experience.css'
 
-export const dotColors = ['var(--g-blue)', 'var(--g-red)', 'var(--g-yellow)', 'var(--g-green)']
+export const dotColors = ['var(--hue-cobalt)', 'var(--hue-ember)', 'var(--hue-amber)', 'var(--hue-violet)']
 const tabs = ['All', 'Co-op', 'Research', 'Project', 'Job']
 const tabLabel = { All: 'All', 'Co-op': 'Co-ops', Research: 'Research', Project: 'Projects', Job: 'Jobs' }
 
@@ -48,7 +48,7 @@ export default function Experience() {
         <SectionHead
           eyebrow="Experience"
           title="Where I've worked"
-          sub={`About ${shown.length} results. Click any result for the full story.`}
+          sub="Co-ops, research and client work. Pick a role to read the full story."
         />
 
         <div className="exp-tabs reveal" role="tablist" aria-label="Filter experience">
@@ -89,7 +89,7 @@ export default function Experience() {
                     <Logo job={job} color={color} className="favicon" />
                     <div>
                       <div className="result-org">{job.org}</div>
-                      <div className="result-url">{job.url}</div>
+                      <div className="result-url">{[job.team || job.location, job.duration].filter(Boolean).join(', ')}</div>
                     </div>
                   </div>
                   <h3 className="result-title">
@@ -129,10 +129,10 @@ export default function Experience() {
           ))}
           <div className="exp-stats">
             {[
-              ['Co-op', 'Co-ops', 'var(--g-blue)'],
-              ['Project', 'Client projects', 'var(--g-red)'],
-              ['Research', 'Research', 'var(--g-green)'],
-              ['Job', 'Campus job', 'var(--g-yellow)'],
+              ['Co-op', 'Co-ops', 'var(--hue-cobalt)'],
+              ['Project', 'Client projects', 'var(--hue-ember)'],
+              ['Research', 'Research', 'var(--hue-violet)'],
+              ['Job', 'Campus job', 'var(--hue-amber)'],
             ].map(([type, label, c]) => {
               const n = experience.filter((e) => e.type === type).length
               return (
